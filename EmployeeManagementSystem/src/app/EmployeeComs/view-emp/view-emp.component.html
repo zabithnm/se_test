@@ -10,7 +10,8 @@
             <b>Employee Name : {{item.firstName}} {{item.lastName}}</b>
             <br>
             <div>
-                <Button class="btn btn-info" (click)="deleteDepartment(item)">Delete</Button>
+                <Button class="btn btn-info m-3" (click)="deleteEmployee(item)">Delete</Button>
+                <Button class="btn btn-info m-3" (click)="view(item)">View</Button>
             </div>
         </li>
 

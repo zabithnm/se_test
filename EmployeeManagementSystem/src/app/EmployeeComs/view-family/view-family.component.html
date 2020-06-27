@@ -1,1 +1,30 @@
-<p>view-family works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="text-center">
+                <h1>Employee Details</h1>
+            </div>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item">Employee ID : {{employee.employeeId}}</li>
+                    <li class="list-group-item">Employee Name : {{employee.firstName}} {{employee.lastName}}</li>
+                    <li class="list-group-item">Employee Job : {{employee.job}}</li>
+                    <li class="list-group-item">Employee Department : {{employee.department}}</li>
+                    <li class="list-group-item">Employee Supervisor : {{employee.supervisor}}</li>
+                    <li class="list-group-item">Employee Phonenumber : {{employee.phoneNumber}}</li>
+                    <li class="list-group-item">Employee Salary : {{employee.salary}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <h1>Family Details</h1>
+            </div>
+            <ul *ngFor="let item of familyDetails" class="list-group mt-5">
+                <li class="list-group-item">Name : {{item.name}}</li>
+                <li class="list-group-item">Name : {{item.occupation}}</li>
+                <li class="list-group-item">Name : {{item.relationship}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

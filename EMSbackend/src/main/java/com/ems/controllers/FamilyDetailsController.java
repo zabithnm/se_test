@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ems.models.FamilyDetails;
@@ -22,9 +23,9 @@ public class FamilyDetailsController {
 	@Autowired
 	FamilyDetailsService detailsService;
 	
-	@RequestMapping(value = "familyDetails", method = RequestMethod.GET)
-	List<FamilyDetails> getFamilyDetails(){
-		return detailsService.getFamilyDetails();
+	@RequestMapping(value = "familyDetails/{id}", method = RequestMethod.GET)
+	List<FamilyDetails> getFamilyDetails(@PathVariable int id){
+		return detailsService.getFamilyDetails(id);
 	}
 	
 	@RequestMapping(value = "familyDetails", method = RequestMethod.POST)

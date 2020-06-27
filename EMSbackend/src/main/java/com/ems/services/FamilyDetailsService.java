@@ -14,8 +14,8 @@ public class FamilyDetailsService {
 	@Autowired
 	FamilyDetailsRepository familyDetailsRepository;
 	
-	public List<FamilyDetails> getFamilyDetails() {
-		List<FamilyDetails> familyDetails = (List<FamilyDetails>) familyDetailsRepository.findAll();
+	public List<FamilyDetails> getFamilyDetails(int id) {
+		List<FamilyDetails> familyDetails = (List<FamilyDetails>) familyDetailsRepository.findAllByEmployee(id);
 		return familyDetails;
 	}
 	

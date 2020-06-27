@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2020 at 07:37 PM
+-- Generation Time: Jun 27, 2020 at 08:31 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -83,6 +83,14 @@ CREATE TABLE `familydetails` (
   `employee` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `familydetails`
+--
+
+INSERT INTO `familydetails` (`id`, `name`, `occupation`, `relationship`, `employee`) VALUES
+(2, 'Naleem', 'Business', 'Father', 545454),
+(3, 'Shathir', 'Student', 'Brother', 545454);
+
 -- --------------------------------------------------------
 
 --
@@ -154,7 +162,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `familydetails`
 --
 ALTER TABLE `familydetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jobs`
