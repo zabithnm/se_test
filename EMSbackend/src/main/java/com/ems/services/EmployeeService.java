@@ -1,10 +1,12 @@
 package com.ems.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ems.models.Department;
 import com.ems.models.Employee;
 import com.ems.repository.EmployeeRepository;
 
@@ -27,7 +29,12 @@ public class EmployeeService {
 		employeeRepository.save(employee);
 	}
 	
-	public void deleteEmployee(Employee employee) {
-		employeeRepository.delete(employee);
+	public void deleteEmployee(int id) {
+		employeeRepository.deleteById(id);
+	}
+	
+	public boolean checkUniqId(int id) {
+		Optional<Employee> employee = employeeRepository.findById(id);
+		return employee.isPresent();
 	}
 }

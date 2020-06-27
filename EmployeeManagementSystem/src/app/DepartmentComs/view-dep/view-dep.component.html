@@ -1,0 +1,18 @@
+<br>
+<h1>Registered Departments</h1>
+<br>
+<div class="col-md-5">
+    <h2 *ngIf="!departments">No Registered departments</h2>
+    <ul *ngFor="let item of departments" class="list-group">
+        <li class="list-group-item">
+            <b>Department ID : {{item.departmentId}}</b>
+            <br>
+            <b>Department Name : {{item.departmentName}}</b>
+            <br>
+            <div>
+                <Button class="btn btn-info" (click)="deleteDepartment(item)">Delete</Button>
+            </div>
+        </li>
+
+    </ul>
+</div>

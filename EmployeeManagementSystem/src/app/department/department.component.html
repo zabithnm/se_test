@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-2">
+        <app-nav-dep></app-nav-dep>
+    </div>
+    <div class="col-md-10">
+        <div *ngIf="this.depServ.viewDep">
+            <app-view-dep></app-view-dep>
+        </div>
+        <div *ngIf="this.depServ.addDep">
+            <app-add-dep></app-add-dep>
+        </div>
+    </div>
+
+</div>

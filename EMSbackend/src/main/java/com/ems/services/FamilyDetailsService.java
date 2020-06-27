@@ -27,7 +27,7 @@ public class FamilyDetailsService {
 		familyDetailsRepository.save(familyDetails);
 	}
 	
-	public void deleteFamilyDetails(FamilyDetails familyDetails) {
-		familyDetailsRepository.delete(familyDetails);
+	public void deleteFamilyDetails(int id) {
+		familyDetailsRepository.deleteById(id);
 	}
 }

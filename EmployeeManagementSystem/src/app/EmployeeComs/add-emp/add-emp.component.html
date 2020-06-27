@@ -1,0 +1,94 @@
+<div class="container-fluid pageInside">
+    <div class="loginForm">
+        <div class="m-2">
+            <h2>Register</h2>
+        </div>
+        <div *ngIf="departments && jobs">
+            <form [formGroup]="form" class="col-md-4 col-11 form shadow">
+                <label class="control-label">Employee ID</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input id="employeeId" name="employeeId" formControlName="employeeId" placeholder="employeeId" class="form-control" autocomplete="off" (ngModelChange)="isEmployeeIdUniqe()"></div>
+                </div>
+                <div *ngIf="getEmployeeId().errors?.notUnique" class="alert alert-danger">
+                    The Employee ID is already taken
+                </div>
+                <div *ngIf="!getEmployeeId().errors" class="alert alert-success">
+                    The Employee ID is Available
+                </div>
+                <div *ngIf="getEmployeeId().errors && getEmployeeId().touched">
+                    <div *ngIf="getEmployeeId().errors?.required" class="alert alert-danger">
+                        Employee ID is required
+                    </div>
+                    <div *ngIf="getEmployeeId().errors?.minlength" class="alert alert-danger">
+                        Employee ID atleast need to have 5 characters
+                    </div>
+                    <div *ngIf="getEmployeeId().errors?.space" class="alert alert-danger">
+                        Employee ID Cannot Contain Spaces
+                    </div>
+                </div>
+                <label class="control-label">First Name</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input id="firstName" name="firstName" formControlName="firstName" placeholder="firstName" class="form-control" autocomplete="false"></div>
+                </div>
+                <div *ngIf="getFirstName().errors && getFirstName().touched">
+                    <div *ngIf="getFirstName().errors?.required" class="alert alert-danger">
+                        First Name is required
+                    </div>
+                </div>
+                <label class="control-label">Last Name</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input id="lastName" name="lastName" formControlName="lastName" placeholder="firstName" class="form-control" autocomplete="false"></div>
+                </div>
+                <label class="control-label">Email</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input id="email" name="email" formControlName="email" placeholder="email" class="form-control" type="email" autocomplete="false"></div>
+                </div>
+                <label class="control-label">Phone Number</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input id="phoneNumber" name="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number" type="tel" class="form-control" autocomplete="false"></div>
+                </div>
+                <label class="control-label">Salary</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input id="salary" name="salary" formControlName="salary" placeholder="Salary" type="number" class="form-control" autocomplete="false"></div>
+                </div>
+                <label class="control-label">Job</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select id="job" name="job" formControlName="job" type="number" class="form-control" autocomplete="false">
+                            <option *ngFor="let item of jobs" value="{{item.jobId}}">{{item.jobName}}</option>
+                        </select>
+                    </div>
+                </div>
+                <label class="control-label">Department</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select id="department" name="department" formControlName="department" type="number" class="form-control" autocomplete="false"> 
+                            <option value="null">None</option>
+                            <option *ngFor="let item of departments" value="{{item.departmentId}}">{{item.departmentName}}</option>    
+                        </select>
+                    </div>
+                </div>
+                <label class="control-label">Supervisor</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select id="supervisor" name="supervisor" formControlName="supervisor" type="number" class="form-control" autocomplete="false">
+                            <option value="null">None</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-2 text-center">
+                    <button *ngIf="form?.status == 'VALID'" (click)="register()" color="primary" class="btn btn-primary">
+                            Submit
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

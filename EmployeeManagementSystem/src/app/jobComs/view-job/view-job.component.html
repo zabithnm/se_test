@@ -1,0 +1,17 @@
+<br>
+<h1>Registered Jobs</h1>
+<br>
+<div class="col-md-5">
+    <ul *ngFor="let item of jobs" class="list-group">
+        <li class="list-group-item">
+            <b>Job ID : {{item.jobId}}</b>
+            <br>
+            <b>Job Name : {{item.jobName}}</b>
+            <br>
+            <div>
+                <Button class="btn btn-info" (click)="deleteJob(item)">Delete</Button>
+            </div>
+        </li>
+
+    </ul>
+</div>

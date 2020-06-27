@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-2">
+        <app-emp-nav></app-emp-nav>
+    </div>
+    <div class="col-md-10">
+        <div *ngIf="this.employeeServ.viewEmp">
+            <app-view-emp></app-view-emp>
+        </div>
+        <div *ngIf="this.employeeServ.addEmp">
+            <app-add-emp></app-add-emp>
+        </div>
+        <div *ngIf="this.employeeServ.addFamily">
+            <app-add-family></app-add-family>
+        </div>
+    </div>
+
+</div>

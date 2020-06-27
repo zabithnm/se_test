@@ -1,0 +1,18 @@
+<br>
+<h1>Registered Employees</h1>
+<br>
+<div class="col-md-5">
+    <h2 *ngIf="!employees">No Registered departments</h2>
+    <ul *ngFor="let item of employees" class="list-group">
+        <li class="list-group-item">
+            <b>Employee ID : {{item.employeeId}}</b>
+            <br>
+            <b>Employee Name : {{item.firstName}} {{item.lastName}}</b>
+            <br>
+            <div>
+                <Button class="btn btn-info" (click)="deleteDepartment(item)">Delete</Button>
+            </div>
+        </li>
+
+    </ul>
+</div>

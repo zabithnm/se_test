@@ -1,0 +1,47 @@
+<div class="container-fluid pageInside">
+    <div class="loginForm">
+        <div class="m-2">
+            <h2>Register</h2>
+        </div>
+        <form [formGroup]="form" class="col-md-4 col-11 form shadow">
+            <label class="control-label">Department ID</label>
+            <div class="form-group">
+                <div class="input-group">
+                    <input id="departmentId" name="departmentId" formControlName="departmentId" placeholder="Department ID" class="form-control" autocomplete="off" (ngModelChange)="isDepartmentIdUniqe()"></div>
+            </div>
+            <div *ngIf="getDepartmentId().errors?.notUnique" class="alert alert-danger">
+                The Department ID is already taken
+            </div>
+            <div *ngIf="!getDepartmentId().errors" class="alert alert-success">
+                The Department ID is Available
+            </div>
+            <div *ngIf="getDepartmentId().errors && getDepartmentId().touched">
+                <div *ngIf="getDepartmentId().errors?.required" class="alert alert-danger">
+                    Department ID is required
+                </div>
+                <div *ngIf="getDepartmentId().errors?.minlength" class="alert alert-danger">
+                    Department ID atleast need to have 5 characters
+                </div>
+                <div *ngIf="getDepartmentId().errors?.space" class="alert alert-danger">
+                    Department ID Cannot Contain Spaces
+                </div>
+            </div>
+            <label class="control-label">Department Name</label>
+            <div class="form-group">
+                <div class="input-group">
+                    <input id="departmentName" name="departmentName" formControlName="departmentName" placeholder="Department Name" class="form-control" autocomplete="false"></div>
+            </div>
+            <div *ngIf="getDepartmentName().errors && getDepartmentName().touched">
+                <div *ngIf="getDepartmentName().errors?.required" class="alert alert-danger">
+                    Department Name is required
+                </div>
+            </div>
+            <div class="mt-2 text-center">
+                <button *ngIf="form?.status == 'VALID'" (click)="register()" color="primary" class="btn btn-primary">
+                        Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

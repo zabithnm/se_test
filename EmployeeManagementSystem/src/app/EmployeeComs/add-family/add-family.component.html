@@ -1,0 +1,31 @@
+<br>
+<h1>Add Family Member</h1>
+<br>
+<form [formGroup]="form" class="col-md-4 col-11 form shadow">
+    <label class="control-label">Employee</label>
+    <div class="form-group">
+        <select id="employee" name="employee" formControlName="employee" type="number" class="form-control" autocomplete="false"> 
+            <option *ngFor="let item of employees" value="{{item.employeeId}}">{{item.firstName}}</option>    
+        </select>
+    </div>
+    <label class="control-label">Name</label>
+    <div class="form-group">
+        <div class="input-group">
+            <input id="name" name="name" formControlName="name" placeholder="Name" class="form-control" autocomplete="false"></div>
+    </div>
+    <label class="control-label">Occupation</label>
+    <div class="form-group">
+        <div class="input-group">
+            <input id="occupation" name="occupation" formControlName="occupation" placeholder="Occupation" class="form-control" autocomplete="false"></div>
+    </div>
+    <label class="control-label">Relationship</label>
+    <div class="form-group">
+        <div class="input-group">
+            <input id="relationship" name="relationship" formControlName="relationship" placeholder="Relationship" class="form-control" autocomplete="false"></div>
+    </div>
+    <div class="mt-2 text-center">
+        <button *ngIf="form?.status == 'VALID'" (click)="register()" color="primary" class="btn btn-primary">
+            Submit
+    </button>
+    </div>
+</form>

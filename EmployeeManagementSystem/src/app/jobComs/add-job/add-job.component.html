@@ -1,0 +1,47 @@
+<div class="container-fluid pageInside">
+    <div class="loginForm">
+        <div class="m-2">
+            <h2>Register</h2>
+        </div>
+        <form [formGroup]="form" class="col-md-4 col-11 form shadow">
+            <label class="control-label">Job ID</label>
+            <div class="form-group">
+                <div class="input-group">
+                    <input id="jobId" name="jobId" formControlName="jobId" placeholder="Job ID" class="form-control" autocomplete="off" (ngModelChange)="isJobIdUniqe()"></div>
+            </div>
+            <div *ngIf="getJobId().errors?.notUnique" class="alert alert-danger">
+                The Job ID is already taken
+            </div>
+            <div *ngIf="!getJobId().errors" class="alert alert-success">
+                The Job ID is Available
+            </div>
+            <div *ngIf="getJobId().errors && getJobId().touched">
+                <div *ngIf="getJobId().errors?.required" class="alert alert-danger">
+                    Job ID is required
+                </div>
+                <div *ngIf="getJobId().errors?.minlength" class="alert alert-danger">
+                    Job ID atleast need to have 3 characters
+                </div>
+                <div *ngIf="getJobId().errors?.space" class="alert alert-danger">
+                    Job ID Cannot Contain Spaces
+                </div>
+            </div>
+            <label class="control-label">Job Name</label>
+            <div class="form-group">
+                <div class="input-group">
+                    <input id="jobName" name="jobName" formControlName="jobName" placeholder="Job Name" class="form-control" autocomplete="false"></div>
+            </div>
+            <div *ngIf="getJobName().errors && getJobName().touched">
+                <div *ngIf="getJobName().errors?.required" class="alert alert-danger">
+                    First Name is required
+                </div>
+            </div>
+            <div class="mt-2 text-center">
+                <button *ngIf="form?.status == 'VALID'" (click)="register()" color="primary" class="btn btn-primary">
+                        Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
